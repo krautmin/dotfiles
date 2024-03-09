@@ -43,3 +43,8 @@ eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
 # Created by `pipx` on 2024-03-09 17:57:11
 export PATH="$PATH:/home/nils/.local/bin"
+
+if [ -f /etc/arch-release ] || pacman -Qi &> /dev/null; then
+   alias hx="helix"
+fi
+EDITOR="hx"
