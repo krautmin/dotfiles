@@ -3,11 +3,25 @@
 
 export ZSH="$HOME/.oh-my-zsh"
 
-ZSH_THEME="agnoster"
+ZSH_THEME="ys"
 
-plugins=( 
+plugins=(
+	ansible
+	terraform
+	kubectl
+	aws
+	azure
+	bun
+	colorize
+	docker
+	dotenv
+	helm
+	pip
+	poetry
+	python
+	rust
+	zsh-interactive-cd 
     git
-    archlinux
     zsh-autosuggestions
     zsh-syntax-highlighting
 )
@@ -20,7 +34,7 @@ source $ZSH/oh-my-zsh.sh
 
 # Display Pokemon-colorscripts
 # Project page: https://gitlab.com/phoneybadger/pokemon-colorscripts#on-other-distros-and-macos
-pokemon-colorscripts --no-title -s -r
+# pokemon-colorscripts --no-title -s -r
 
 
 ### From this line is for pywal-colors
@@ -45,6 +59,10 @@ eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 export PATH="$PATH:/home/nils/.local/bin"
 
 if [ -f /etc/arch-release ] || pacman -Qi &> /dev/null; then
-   alias hx="helix"
+   	alias hx="helix"
+	EDITOR="helix"
+	plugins+=archlinux
+elif [ "$ID" = "debian" ] || [ "$ID_LIKE" = "*debian*" ]; then
+	EDITOR="hx"
+	plugins+=debian
 fi
-EDITOR="hx"

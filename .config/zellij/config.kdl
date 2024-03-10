@@ -234,7 +234,7 @@ auto_layout true
 //   - true (default)
 //   - false
 //
-// session_serialization false
+session_serialization true
 
 // Whether pane viewports are serialized along with the session, default is false
 // Options:
@@ -276,7 +276,7 @@ theme "tokyo-night"
 // The name of the default layout to load on startup
 // Default: "default"
 //
-default_layout "strider"
+default_layout ".config/zellij/dev.kdl"
 
 // Choose the mode that zellij uses when starting up.
 // Default: normal
