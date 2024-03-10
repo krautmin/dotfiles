@@ -3,7 +3,7 @@ ZELLIJ_VERSION=0.39.2
 
 # Install base stuff
 sudo apt update && sudo apt dist-upgrade
-sudo apt install -y go python3 python3-dev pipx git wget curl gpg zsh
+sudo apt install -y go python3 python3-dev pipx git wget curl gpg zsh yank btop jq pgcli neofetch
 
 # Install rustup
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
@@ -13,6 +13,12 @@ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >>/home/nils/.zshrc
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 brew install jdtls
+brew install xo/xo/usql
+brew install k9s
+brew install jesseduffield/lazydocker/lazydocker
+brew tap yakitrak/yakitrak
+brew install yakitrak/yakitrak/obs
+brew install kdabir/tap/has
 
 # Install Terraform stuff
 wget -O- https://apt.releases.hashicorp.com/gpg | sudo gpg --dearmor -o /usr/share/keyrings/hashicorp-archive-keyring.gpg
@@ -64,7 +70,9 @@ bun i -g @ansible/ansible-language-server \
 	@tailwindcss/language-server \
 	typescript \
 	typescript-language-server \
-	yaml-language-server@next
+	yaml-language-server@next \
+	undollar \
+	iola
 
 # Rust
 rustup component add rust-analyzer
@@ -79,6 +87,8 @@ pipx install ruff-lsp
 pipx install black
 pipx install sqlparse
 pipx install --include-deps ansible
+pipx install yq
+pipx install iredis
 pipx ensurepath
 pipx completions
 autoload -U bashcompinit
