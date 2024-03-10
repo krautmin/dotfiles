@@ -67,6 +67,8 @@ hx --grammar build
 cd ~/
 wget https://github.com/vercel/geist-font/releases/download/1.1.0/Geist.Mono.zip
 tar -xvf Geist.Mono.zip
+mkdir -p .local/share/fonts
+mv Geist.Mono/*.otf .local/share/fonts
 
 # Install Go stuff
 go install mvdan.cc/sh/v3/cmd/shfmt@latest
