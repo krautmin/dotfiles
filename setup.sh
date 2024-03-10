@@ -3,7 +3,7 @@ ZELLIJ_VERSION=0.39.2
 
 # Install base stuff
 sudo apt update && sudo apt dist-upgrade
-sudo apt install -y go python3 python3-dev pipx git wget curl gpg zsh yank btop jq pgcli neofetch
+sudo apt install -y go python3 python3-dev pipx git wget curl gpg zsh yank btop jq pgcli neofetch lsd
 
 # Install rustup
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
@@ -19,6 +19,8 @@ brew install jesseduffield/lazydocker/lazydocker
 brew tap yakitrak/yakitrak
 brew install yakitrak/yakitrak/obs
 brew install kdabir/tap/has
+brew install ffsend
+brew install jesseduffield/lazygit/lazygit
 
 # Install Terraform stuff
 wget -O- https://apt.releases.hashicorp.com/gpg | sudo gpg --dearmor -o /usr/share/keyrings/hashicorp-archive-keyring.gpg
@@ -36,10 +38,10 @@ sudo mv zellij /usr/bin/
 git clone https://github.com/helix-editor/helix
 cd helix
 cargo install --path helix-term --locked
+rm -r ~/.config/helix/runtime
+cd ~/.config/helix
 hx --grammar fetch
 hx --grammar build
-rm ~/.config/helix/runtime
-ln -Ts $PWD/helix/runtime ~/.config/helix/runtime
 
 # Install Geist Mono font
 cd ~/
@@ -72,7 +74,8 @@ bun i -g @ansible/ansible-language-server \
 	typescript-language-server \
 	yaml-language-server@next \
 	undollar \
-	iola
+	iola \
+	git-lab-cli
 
 # Rust
 rustup component add rust-analyzer
